@@ -96,7 +96,7 @@ public:
         }
         this->Size -= (last - first + 1);
         end_ = &a[Size];
-        end++;
+        end_++;
     }
 
     void print() {
