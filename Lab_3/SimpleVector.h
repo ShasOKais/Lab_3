@@ -1,5 +1,4 @@
 #include <iostream>
-#include <chrono>
 
 using namespace std;
 
@@ -13,7 +12,6 @@ protected:
     T* a; // адрес вектора
     iterator begin_; // Итератор на начало массива
     iterator end_; // Итератор на конец массива
-
     void recreate() { // Выделение памяти для вектора
         maxsize = maxsize ? maxsize : 1; // Условие при котором размер вектора не будет равен 0
         T* b = new T[this->maxsize * C]; // Выделение памяти для объекта массива
@@ -24,7 +22,6 @@ protected:
         a = b;
         maxsize *= C;
     }
-
 public:
     SimpleVector() {
         begin_ = end_ = NULL;
@@ -32,7 +29,6 @@ public:
         Size = 0;
         maxsize = 0;
     }
-
     SimpleVector(int sz) {
         this->Size = sz;
         maxsize = sz;
@@ -41,7 +37,6 @@ public:
         end_ = &a[Size - 1]; // Присваиваем итератору end_ на начало вектора
         end_++; // Чтобы конец вектора не указывал на последний индекс
     }
-
     T& operator [] (int index) {
         try {
             if (index >= this->Size) {
@@ -50,18 +45,15 @@ public:
         }
         catch (int nm) {
             cout << "Выход за границы массива :" << nm << endl;
-
         }
         return this->a[index];
     }
-
     iterator begin() {
         return begin_;
     }
     iterator end() {
         return end_;
     }
-
     void push_back(T x) {
         if (this->Size + 1 > this->maxsize) {
             this->recreate();
@@ -71,7 +63,6 @@ public:
         if (!begin_) begin_ = end_ = &a[0];
         end_++;
     }
-
     void pop_back() {
         try {
             if (Size == 0) throw(0);
@@ -83,7 +74,6 @@ public:
         Size--;
         end_--;
     }
-
     void erase(int first, int last) {
         try {
             if (first > last || first < 0 || last >= Size) throw(1);
@@ -98,13 +88,11 @@ public:
         end_ = &a[Size];
         end_++;
     }
-
     void print() {
         for (int i(0); i < this->Size; i++) {
             cout << a[i] << " ";
         }
     }
-
     int size() {
         return this->Size;
     }
@@ -134,7 +122,6 @@ public:
         }
         return a[0];
     }
-
     ~SimpleVector() {
         delete[]a;
     }

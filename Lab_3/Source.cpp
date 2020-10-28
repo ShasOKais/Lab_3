@@ -1,6 +1,5 @@
 #include <iostream>
 #include "SimpleVector.h"
-#include <vector>
 #include <chrono>
 
 using namespace std;
@@ -32,7 +31,9 @@ int main() {
     std::cout << "The time: " << elapsed_vector1.count() << " ms\n";
 
     /*
+    * Список доступных функций:
     * SimpleVector<int>myvector(n)
+    * SimpleVector<int>::iterator it = ***
     * MyVector.push_back();
     * MyVector.pop_back();
     * MyVector.erase();
