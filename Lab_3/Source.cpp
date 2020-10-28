@@ -12,26 +12,26 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> MyVector[i];
     }
-    cout << "\nÂûâîä âåêòîðà íà ýêðàí:";
+    cout << "\nÐ’Ñ‹Ð²Ð¾Ð´ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð° Ð½Ð° ÑÐºÑ€Ð°Ð½:";
     for (int i = 0; i < n; i++) {
         cout << MyVector[i] << " ";
     }
 
-    cout << "\nÂûâîä âåêòîðà ïî èòåðàòîðîì: ";
+    cout << "\nÐ’Ñ‹Ð²Ð¾Ð´ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð° Ð¿Ð¾ Ð¸Ñ‚ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð¾Ð¼: ";
     for (SimpleVector<int>::iterator it = MyVector.begin(); it != MyVector.end(); it++) {
         cout << *it << " ";
     }
 
-    auto Begin1 = std::chrono::steady_clock::now(); // çàñåêàåì âðåìÿ
+    auto Begin1 = std::chrono::steady_clock::now(); // Ð·Ð°ÑÐµÐºÐ°ÐµÐ¼ Ð²Ñ€ÐµÐ¼Ñ
 
     cout << "\nMyVector.***** - ";  MyVector.erase(1, 5);
 
-    auto End1 = std::chrono::steady_clock::now(); // îáðûâàåì
+    auto End1 = std::chrono::steady_clock::now(); // Ð¾Ð±Ñ€Ñ‹Ð²Ð°ÐµÐ¼
     auto elapsed_vector1 = std::chrono::duration_cast<std::chrono::milliseconds>(End1 - Begin1);
     std::cout << "The time: " << elapsed_vector1.count() << " ms\n";
 
     /*
-    * Ñïèñîê äîñòóïíûõ ôóíêöèé:
+    * Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ñ… Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹:
     * SimpleVector<int>myvector(n)
     * SimpleVector<int>::iterator it = ***
     * MyVector.push_back();
