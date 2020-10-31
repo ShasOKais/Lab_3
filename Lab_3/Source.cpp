@@ -1,7 +1,7 @@
 #include <iostream>
 #include "SimpleVector.h"
 #include <chrono>
-
+#define SP system("pause")
 using namespace std;
 
 int main() {
@@ -10,28 +10,32 @@ int main() {
     cin >> n;
     SimpleVector<int>MyVector(n);
     for (int i = 0; i < n; i++) {
-        cin >> MyVector[i];
+        MyVector[i] = i;
     }
-    cout << "\nÐ’Ñ‹Ð²Ð¾Ð´ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð° Ð½Ð° ÑÐºÑ€Ð°Ð½:";
+    cout << "\nÂûâîä âåêòîðà íà ýêðàí:";
     for (int i = 0; i < n; i++) {
         cout << MyVector[i] << " ";
     }
-
-    cout << "\nÐ’Ñ‹Ð²Ð¾Ð´ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð° Ð¿Ð¾ Ð¸Ñ‚ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð¾Ð¼: ";
+    cout << "\nÂûâîä âåêòîðà ïî èòåðàòîðîì: ";
     for (SimpleVector<int>::iterator it = MyVector.begin(); it != MyVector.end(); it++) {
         cout << *it << " ";
     }
 
-    auto Begin1 = std::chrono::steady_clock::now(); // Ð·Ð°ÑÐµÐºÐ°ÐµÐ¼ Ð²Ñ€ÐµÐ¼Ñ
+    auto Begin1 = std::chrono::steady_clock::now(); // çàñåêàåì âðåìÿ
 
-    cout << "\nMyVector.***** - ";  MyVector.erase(1, 5);
+    cout << "\nMyVector.erase - ";  MyVector.erase(1, 5); MyVector.print();
+    cout << "\nMyVector.push.back(m) - ";  MyVector.push_back(666); MyVector.push_back(666); MyVector.print();
+    cout << "\nMyVector.pop_back() - ";  MyVector.pop_back(); MyVector.print();
+    cout << "\nMyVector.size() - " <<  MyVector.size();
+    cout << "\nMyVector.back() - " << MyVector.back();
+    cout << "\nMyVector.front() - " <<  MyVector.front();
+    cout << "\nMyVector.clear() - ";  MyVector.clear();
 
-    auto End1 = std::chrono::steady_clock::now(); // Ð¾Ð±Ñ€Ñ‹Ð²Ð°ÐµÐ¼
+    auto End1 = std::chrono::steady_clock::now(); // îáðûâàåì
     auto elapsed_vector1 = std::chrono::duration_cast<std::chrono::milliseconds>(End1 - Begin1);
     std::cout << "The time: " << elapsed_vector1.count() << " ms\n";
-
     /*
-    * Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ñ… Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹:
+    * Ñïèñîê äîñòóïíûõ ôóíêöèé:
     * SimpleVector<int>myvector(n)
     * SimpleVector<int>::iterator it = ***
     * MyVector.push_back();
@@ -43,6 +47,5 @@ int main() {
     * back();
     * front();
     */
-
-	return 0;
+    return 0;
 }
